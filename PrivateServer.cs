@@ -63,6 +63,7 @@ namespace PrivateServer
             Logger = LoggerInstance;
             #endregion
 
+            // Safety checks (e.g.: is the mod disabled? Are the URLs malformed?)
             if (!PrivateServerEnabled.Value) return;
             if (!(PrivateServerApiUrl.Value.ToLower().StartsWith("http://") ||
                   PrivateServerApiUrl.Value.ToLower().StartsWith("https://")))
