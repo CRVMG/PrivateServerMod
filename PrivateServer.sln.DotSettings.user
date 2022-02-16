@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fgeorge_002F_002Esteam_002Fsteam_002Fsteamapps_002Fcommon_002FVRChat_002FMelonLoader_002FManaged_002FAssembly_002DCSharp_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fgeorge_002F_002Esteam_002Fsteam_002Fsteamapps_002Fcommon_002FVRChat_002FMelonLoader_002FManaged_002FIl2Cppmscorlib_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fgeorge_002F_002Esteam_002Fsteam_002Fsteamapps_002Fcommon_002FVRChat_002FMelonLoader_002FManaged_002FIl2CppSystem_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fgeorge_002F_002Esteam_002Fsteam_002Fsteamapps_002Fcommon_002FVRChat_002FMelonLoader_002FManaged_002FVRCCore_002DStandalone_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fgeorge_002F_002Esteam_002Fsteam_002Fsteamapps_002Fcommon_002FVRChat_002FMelonLoader_002FMelonLoader_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer /&gt;</s:String></wpf:ResourceDictionary>

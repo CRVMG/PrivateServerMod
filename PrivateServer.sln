@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateServer", "PrivateServer.csproj", "{BBB72E2A-96AF-468F-B109-FFB43A6F5049}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBB72E2A-96AF-468F-B109-FFB43A6F5049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB72E2A-96AF-468F-B109-FFB43A6F5049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB72E2A-96AF-468F-B109-FFB43A6F5049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB72E2A-96AF-468F-B109-FFB43A6F5049}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
