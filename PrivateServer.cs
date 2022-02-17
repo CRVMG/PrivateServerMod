@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -33,7 +34,7 @@ namespace PrivateServer
         /// <summary>
         /// Enumerator that ensures that a callback happens on OnUiManagerInitCallback only after the UI manager
         /// has initialized. Thanks Davi!
-        /// Sourced from: (https://discord.com/channels/439093693769711616/548545237123989505/854708903694958622)
+        /// (Sourced from: https://discord.com/channels/439093693769711616/548545237123989505/854708903694958622)
         /// </summary>
         /// <returns></returns>
         static IEnumerator OnUiManagerInit()
@@ -115,6 +116,14 @@ namespace PrivateServer
         {
             if (PrivateServerEnabled.Value)
                 API.SetApiUrl(PrivateServerApiUrl.Value + ApiBaseUri);
+        }
+
+        /// <summary>
+        /// Overrides OnApplicationQuit to ensure that the Amplitude event cache file is deleted.
+        /// </summary>
+        public override void OnApplicationQuit()
+        {
+            File.Delete($"{Path.GetTempPath()}\\VRChat\\VRChat\\amplitude.cache");
         }
         #endregion
         
