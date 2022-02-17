@@ -87,9 +87,9 @@ namespace PrivateServer
                 GetPatch("PatchSecurePlayerPrefs"));
             HarmonyInstance.Patch(typeof(SecurePlayerPrefs).GetMethod("SetString"),
                 GetPatch("PatchSecurePlayerPrefs"));
-            HarmonyInstance.Patch(typeof(SecurePlayerPrefs).GetMethods().First(x => x.GetParameters().Length == 2),
+            HarmonyInstance.Patch(typeof(SecurePlayerPrefs).GetMethods().First(x => x.Name == "GetString" && x.GetParameters().Length == 2),
                 GetPatch("PatchSecurePlayerPrefs"));
-            HarmonyInstance.Patch(typeof(SecurePlayerPrefs).GetMethods().First(x => x.GetParameters().Length == 3),
+            HarmonyInstance.Patch(typeof(SecurePlayerPrefs).GetMethods().First(x => x.Name == "GetString" && x.GetParameters().Length == 3),
                 GetPatch("PatchSecurePlayerPrefs"));
             
             // Potentially deprecated: Websocket URI patch
@@ -102,9 +102,9 @@ namespace PrivateServer
             API.SetApiUrl(PrivateServerApiUrl.Value + ApiBaseUri);
             
             Logger.Warning("Private Server functionality enabled; You are now connecting to the following addresses:\n" +
-                       $"        API: {PrivateServerApiUrl.Value}\n" +
-                       $"        Websocket: {PrivateServerWebsocketUrl.Value}\n" +
-                       $"        Photon NameServer: {PrivateServerNameServerHost.Value}");
+                       $"            API: {PrivateServerApiUrl.Value}\n" +
+                       $"            Websocket: {PrivateServerWebsocketUrl.Value}\n" +
+                       $"            Photon NameServer: {PrivateServerNameServerHost.Value}");
         }
 
         /// <summary>
@@ -244,13 +244,15 @@ namespace PrivateServer
             if (!(PrivateServerApiUrl.Value.ToLower().StartsWith("http://") ||
                   PrivateServerApiUrl.Value.ToLower().StartsWith("https://")))
             {
-                Logger.Error($"Invalid api url. Should start with `http://` or `https://`\nYour configured API url is: {PrivateServerApiUrl.Value}");
+                Logger.Error($"Invalid api url. Should start with `http://` or `https://`" +
+                             $"            Your configured API url is: {PrivateServerApiUrl.Value}");
                 return false;
             }
             if (!(PrivateServerWebsocketUrl.Value.ToLower().StartsWith("ws://") ||
                   PrivateServerWebsocketUrl.Value.ToLower().StartsWith("wss://")))
             {
-                Logger.Error($"Invalid websocket url. Should start with `ws://` or `wss://`\nYour configured websocket url is: {PrivateServerWebsocketUrl.Value}");
+                Logger.Error($"Invalid websocket url. Should start with `ws://` or `wss://`" +
+                             $"            Your configured websocket url is: {PrivateServerWebsocketUrl.Value}");
                 return false;
             }
 
@@ -302,6 +304,9 @@ namespace PrivateServer
         #endregion
     }
 
+    /// <summary>
+    /// Support class for JSON deserialization.
+    /// </summary>
     public class AutoConfig
     {
         public string ApiUrl;
