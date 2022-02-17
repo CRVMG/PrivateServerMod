@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using HarmonyLib;
 using MelonLoader;
+using Newtonsoft.Json;
 using Transmtn;
 using UnhollowerBaseLib;
 using VRC.Core;
@@ -19,9 +21,12 @@ namespace PrivateServer
         public static MelonLogger.Instance Logger;
         public static MelonPreferences_Category PrivateServerPrefs;
         public static MelonPreferences_Entry<bool> PrivateServerEnabled;
+        public static MelonPreferences_Entry<bool> PrivateServerAutoConfig;
+        public static MelonPreferences_Entry<string> PrivateServerAutoConfigUrl;
         public static MelonPreferences_Entry<string> PrivateServerApiUrl;
         public static MelonPreferences_Entry<string> PrivateServerWebsocketUrl;
         public static MelonPreferences_Entry<string> PrivateServerNameServerHost;
+        public static bool AutoConfigSucceeded = false;
         public static string ApiBaseUri = "api/1/"; // Base is required only by *some* methods in the game.
 
         #region Functions & Callbacks
@@ -56,28 +61,20 @@ namespace PrivateServer
             #region Variable Initialization
             PrivateServerPrefs = MelonPreferences.CreateCategory("PrivateServer");
             PrivateServerEnabled = PrivateServerPrefs.CreateEntry("Enabled", false);
+            PrivateServerAutoConfig = PrivateServerPrefs.CreateEntry("AutoConfig", false);
+            PrivateServerAutoConfigUrl = PrivateServerPrefs.CreateEntry("AutoConfigUrl", "");
             PrivateServerApiUrl = PrivateServerPrefs.CreateEntry("ApiUrl", "");
             PrivateServerWebsocketUrl = PrivateServerPrefs.CreateEntry("WebsocketUrl", "");
             PrivateServerNameServerHost = PrivateServerPrefs.CreateEntry("NameServerHost", "");
             
             Logger = LoggerInstance;
             #endregion
-
-            // Safety checks (e.g.: is the mod disabled? Are the URLs malformed?)
-            if (!PrivateServerEnabled.Value) return;
-            if (!(PrivateServerApiUrl.Value.ToLower().StartsWith("http://") ||
-                  PrivateServerApiUrl.Value.ToLower().StartsWith("https://")))
-            {
-                Logger.Error("Invalid api url. Should start with `http://` or `https://`");
-                return;
-            }
-            if (!(PrivateServerWebsocketUrl.Value.ToLower().StartsWith("ws://") ||
-                  PrivateServerWebsocketUrl.Value.ToLower().StartsWith("wss://")))
-            {
-                Logger.Error("Invalid websocket url. Should start with `ws://` or `wss://`");
-                return;
-            }
             
+            if (!PrivateServerEnabled.Value) return;
+            if (PrivateServerAutoConfig.Value) doAutoConfig();
+            if (PrivateServerAutoConfig.Value && !AutoConfigSucceeded) return;
+            if (!urlConfigIsSafe()) return;
+
             #region Harmony Patches
             // Photon LoadBalancingClient patches
             HarmonyInstance.Patch(typeof(VRCNetworkingClient).GetMethod("Method_Private_String_0"), GetPatch(
@@ -103,6 +100,11 @@ namespace PrivateServer
             DetourApiCtor();
             MelonCoroutines.Start(OnUiManagerInit());
             API.SetApiUrl(PrivateServerApiUrl.Value + ApiBaseUri);
+            
+            Logger.Warning("Private Server functionality enabled; You are now connecting to the following addresses:\n" +
+                       $"        API: {PrivateServerApiUrl.Value}\n" +
+                       $"        Websocket: {PrivateServerWebsocketUrl.Value}\n" +
+                       $"        Photon NameServer: {PrivateServerNameServerHost.Value}");
         }
 
         /// <summary>
@@ -230,5 +232,80 @@ namespace PrivateServer
                 onLostConnectionResponse, nativeMethodInfo);
         }
         #endregion
+        
+        #region Utility Methods
+
+        /// <summary>
+        /// Validates that the currently-set API & Websocket URLs are valid and will not cause a parsing crash.
+        /// </summary>
+        /// <returns>Boolean indicating whether the set URLs are safe</returns>
+        private static bool urlConfigIsSafe()
+        {
+            if (!(PrivateServerApiUrl.Value.ToLower().StartsWith("http://") ||
+                  PrivateServerApiUrl.Value.ToLower().StartsWith("https://")))
+            {
+                Logger.Error($"Invalid api url. Should start with `http://` or `https://`\nYour configured API url is: {PrivateServerApiUrl.Value}");
+                return false;
+            }
+            if (!(PrivateServerWebsocketUrl.Value.ToLower().StartsWith("ws://") ||
+                  PrivateServerWebsocketUrl.Value.ToLower().StartsWith("wss://")))
+            {
+                Logger.Error($"Invalid websocket url. Should start with `ws://` or `wss://`\nYour configured websocket url is: {PrivateServerWebsocketUrl.Value}");
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Automatically configures the API, WebSocket, and Photon NameServer endpoints based on a JSON response.
+        /// Code for fetching & deserializing JSON taken from gompo
+        /// (Sourced from: https://github.com/gompoc/VRChatMods/blob/master/UpdateChecker/Main.cs#L28)
+        /// </summary>
+        private static void doAutoConfig()
+        {
+            string apiResponse;
+            using var client = new WebClient
+            {
+                Headers = {["User-Agent"] = "PrivateServer AutoConfiguration Utility"}
+            };
+            try
+            {
+                apiResponse = client.DownloadString(PrivateServerAutoConfigUrl.Value);
+            }
+            catch (WebException e)
+            {
+                Logger.Error($"Failed to contact Private Server AutoConfig endpoint: {e.Message}\n\nPrivate Server functionality will be disabled.");
+                return;
+            }
+            
+            AutoConfig autoConfig = JsonConvert.DeserializeObject<AutoConfig>(apiResponse);
+            if (autoConfig == null)
+            {
+                Logger.Error("AutoConfig was null; Private Server functionality will be disabled.");
+                return;
+            }
+
+            if (autoConfig.ApiUrl == null || autoConfig.WebsocketUrl == null || autoConfig.NameServerHost == null)
+            {
+                Logger.Error("Part of AutoConfig was null; Private Server functionality will be disabled.");
+                return;
+            }
+            
+            PrivateServerApiUrl.Value = autoConfig.ApiUrl;
+            PrivateServerWebsocketUrl.Value = autoConfig.WebsocketUrl;
+            PrivateServerNameServerHost.Value = autoConfig.NameServerHost;
+            AutoConfigSucceeded = true;
+
+            PrivateServerPrefs.SaveToFile(false); // Save latest AutoConfig to MelonPrefs
+        }
+        #endregion
+    }
+
+    public class AutoConfig
+    {
+        public string ApiUrl;
+        public string WebsocketUrl;
+        public string NameServerHost;
     }
 }
