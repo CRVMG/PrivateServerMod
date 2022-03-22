@@ -34,45 +34,48 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="0Harmony, Version=2.9.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\0Harmony.dll</HintPath>
+        </Reference>
         <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="Il2Cppmscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\Il2CppSystem.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\Il2CppSystem.dll</HintPath>
         </Reference>
-        <Reference Include="MelonLoader, Version=0.5.3.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\MelonLoader.dll</HintPath>
+        <Reference Include="MelonLoader, Version=0.5.4.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\MelonLoader.dll</HintPath>
         </Reference>
         <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\Newtonsoft.Json.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\Newtonsoft.Json.dll</HintPath>
         </Reference>
-        <Reference Include="Photon-DotNet, Version=4.1.4.4, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\Photon-DotNet.dll</HintPath>
+        <Reference Include="Photon-DotNet, Version=4.1.6.12, Culture=neutral, PublicKeyToken=null">
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\Photon-DotNet.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
         <Reference Include="Transmtn, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\Transmtn.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\Transmtn.dll</HintPath>
         </Reference>
         <Reference Include="UnhollowerBaseLib, Version=0.4.17.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\UnhollowerBaseLib.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\UnhollowerBaseLib.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="VRC.UI.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\VRC.UI.Core.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\VRC.UI.Core.dll</HintPath>
         </Reference>
         <Reference Include="VRCCore-Standalone, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\VRCCore-Standalone.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\VRCCore-Standalone.dll</HintPath>
         </Reference>
         <Reference Include="websocket-sharp, Version=1.0.2.59611, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\.steam\steam\steamapps\common\VRChat\MelonLoader\Managed\websocket-sharp.dll</HintPath>
+          <HintPath>D:\SteamLibrary\steamapps\common\VRChat\MelonLoader\Managed\websocket-sharp.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>

@@ -200,11 +200,20 @@ namespace PrivateServer
         /// </summary>
         private static unsafe void DetourApiCtor()
         {
-            IntPtr apiConstructorOrig = *(IntPtr*)(IntPtr)UnhollowerUtils.GetIl2CppMethodInfoPointerFieldForGeneratedMethod(typeof(Api).GetConstructors().First(x => x.GetParameters().Length > 6)).GetValue(null);
-            MelonUtils.NativeHookAttach((IntPtr)(&apiConstructorOrig), typeof(PrivateServer).
-                GetMethod(nameof(PatchApiCtor), BindingFlags.Static | BindingFlags.NonPublic)!.
-                MethodHandle.GetFunctionPointer());
-            _apiDelegate = Marshal.GetDelegateForFunctionPointer<ApiDelegate>(apiConstructorOrig);
+            try
+            {
+                IntPtr apiConstructorOrig = *(IntPtr*)(IntPtr)UnhollowerUtils
+                    .GetIl2CppMethodInfoPointerFieldForGeneratedMethod(typeof(Api).GetConstructors()
+                        .First(x => x.GetParameters().Length > 6)).GetValue(null);
+                MelonUtils.NativeHookAttach((IntPtr)(&apiConstructorOrig),
+                    typeof(PrivateServer).GetMethod(nameof(PatchApiCtor), BindingFlags.Static | BindingFlags.NonPublic)!
+                        .MethodHandle.GetFunctionPointer());
+                _apiDelegate = Marshal.GetDelegateForFunctionPointer<ApiDelegate>(apiConstructorOrig);
+            }
+            catch (Exception e)
+            {
+                Logger.Warning($"VRChat's API constructor had an error -- caught: {e}");
+            }
         }
 
         /// <summary>
