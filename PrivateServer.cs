@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using AmplitudeSDKWrapper;
 using HarmonyLib;
 using MelonLoader;
 using Newtonsoft.Json;
 using Transmtn;
 using UnhollowerBaseLib;
+using UnityEngine;
 using VRC.Core;
 
 namespace PrivateServer
@@ -27,6 +30,8 @@ namespace PrivateServer
         public static MelonPreferences_Entry<string> PrivateServerApiUrl;
         public static MelonPreferences_Entry<string> PrivateServerWebsocketUrl;
         public static MelonPreferences_Entry<string> PrivateServerNameServerHost;
+        public static MelonPreferences_Entry<bool> AnalyticsRedirectEnabled;
+        public static MelonPreferences_Entry<string> AnalyticsRedirectUrl;
         public static bool AutoConfigSucceeded = false;
         public static string ApiBaseUri = "api/1/"; // Base is required only by *some* methods in the game.
 
@@ -67,6 +72,8 @@ namespace PrivateServer
             PrivateServerApiUrl = PrivateServerPrefs.CreateEntry("ApiUrl", "");
             PrivateServerWebsocketUrl = PrivateServerPrefs.CreateEntry("WebsocketUrl", "");
             PrivateServerNameServerHost = PrivateServerPrefs.CreateEntry("NameServerHost", "");
+            AnalyticsRedirectEnabled = PrivateServerPrefs.CreateEntry("AnalyticsRedirectEnabled", false);
+            AnalyticsRedirectUrl = PrivateServerPrefs.CreateEntry("AnalyticsRedirectUrl", "");
             
             Logger = LoggerInstance;
             #endregion
@@ -96,6 +103,10 @@ namespace PrivateServer
             // Potentially deprecated: Websocket URI patch
             HarmonyInstance.Patch(typeof(WebSocketSharp.Ext).GetMethod("TryCreateWebSocketUri"),
                 GetPatch("PatchTryCreateWebSocketUri"));
+            
+            // Conditional patch for analytics redirection
+            if (AnalyticsRedirectEnabled.Value) HarmonyInstance.Patch(typeof(AmplitudeWrapper).GetMethod("PostEvents"), GetPatch("PatchPostEvents"));
+            
             #endregion
             
             DetourApiCtor();
@@ -106,6 +117,12 @@ namespace PrivateServer
                        $"            API: {PrivateServerApiUrl.Value}\n" +
                        $"            Websocket: {PrivateServerWebsocketUrl.Value}\n" +
                        $"            Photon NameServer: {PrivateServerNameServerHost.Value}");
+
+            if (AnalyticsRedirectEnabled.Value)
+                Logger.Warning(
+                    "Analytics redirection enabled; You are now redirecting analytics to the following address:\n" +
+                    $"            {AnalyticsRedirectUrl.Value}\n" +
+                    "             This feature is still in development and may not work properly. It is recommended to keep this disabled.");
         }
 
         /// <summary>
@@ -170,6 +187,37 @@ namespace PrivateServer
         {
             key = PrivateServerApiUrl.Value + "_" + key;
             return true;
+        }
+
+        /// <summary>
+        /// A patch to redirect Amplitude analytics to a custom host.
+        /// </summary>
+        /// <param name="__instance"></param>
+        /// <param name="events"></param>
+        /// <param name="onSuccess"></param>
+        /// <param name="onError"></param>
+        /// <returns></returns>
+        private static bool PatchPostEvents(AmplitudeWrapper __instance, IEnumerable<Dictionary<string, object>> events, Action onSuccess, Action<AmplitudeWrapper.ErrorCode> onError)
+        {
+            int eventCount = events.Count<Dictionary<string, object>>();
+            if (eventCount <= 0)
+            {
+                onSuccess();
+                return true;
+            }
+            
+            string eventsJson = JsonConvert.SerializeObject(events.ToList<Dictionary<string, object>>()); // TODO: Verify whether this works; Original uses BestHTTP.JSON.Json()
+            if (eventsJson.Length > 131072)
+            {
+                Debug.LogWarning("AmplitudeAPI: PostEvents: events payload was too large, breaking up into smaller requests.  Length - " + eventsJson.Length);
+                onError(AmplitudeWrapper.ErrorCode.EventPayloadTooLarge);
+                return true;
+            }
+
+            // TODO: Send a request to AnalyticsRedirectUrl.Value - This requires that we either use a custom UnityWebRequest, or
+            //       fix the BestHTTP library to allow us to use it here with an ambiguous reference (Assembly-CSharp vs VRCCore-Standalone).
+            UpdateDelegator.Dispatch(new Action(delegate { }));
+            return true; 
         }
 
         #endregion
