@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Net.Http;
 using AmplitudeSDKWrapper;
 using HarmonyLib;
 using MelonLoader;
@@ -13,7 +15,9 @@ using Newtonsoft.Json;
 using Transmtn;
 using UnhollowerBaseLib;
 using UnityEngine;
+using Il2CppSystem.Collections.Generic;
 using VRC.Core;
+using Object = System.Object;
 
 namespace PrivateServer
 {
@@ -197,26 +201,53 @@ namespace PrivateServer
         /// <param name="onSuccess"></param>
         /// <param name="onError"></param>
         /// <returns></returns>
-        private static bool PatchPostEvents(AmplitudeWrapper __instance, IEnumerable<Dictionary<string, object>> events, Action onSuccess, Action<AmplitudeWrapper.ErrorCode> onError)
+        private static bool PatchPostEvents(AmplitudeWrapper __instance, Il2CppSystem.Collections.Generic.IEnumerable<Il2CppSystem.Collections.Generic.Dictionary<string, Il2CppSystem.Object>> events, Il2CppSystem.Action onSuccess, Il2CppSystem.Action<AmplitudeWrapper.ErrorCode> onError)
         {
-            int eventCount = events.Count<Dictionary<string, object>>();
+            var eventsList = new Il2CppSystem.Collections.Generic
+                .List<Il2CppSystem.Collections.Generic.Dictionary<string, Il2CppSystem.Object>>(events);
+
+            int eventCount = eventsList.Count;
             if (eventCount <= 0)
             {
-                onSuccess();
+                onSuccess?.Invoke();
                 return true;
             }
             
-            string eventsJson = JsonConvert.SerializeObject(events.ToList<Dictionary<string, object>>()); // TODO: Verify whether this works; Original uses BestHTTP.JSON.Json()
+            string eventsJson = Il2CppNewtonsoft.Json.JsonConvert.SerializeObject(eventsList);
             if (eventsJson.Length > 131072)
             {
                 Debug.LogWarning("AmplitudeAPI: PostEvents: events payload was too large, breaking up into smaller requests.  Length - " + eventsJson.Length);
-                onError(AmplitudeWrapper.ErrorCode.EventPayloadTooLarge);
+                onError?.Invoke(AmplitudeWrapper.ErrorCode.EventPayloadTooLarge);
                 return true;
             }
+            try
+            {
+                var hc = new System.Net.Http.HttpClient();
+                var formvars = new System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<string, string>>();
+                
+                formvars.Add(new System.Collections.Generic.KeyValuePair<string, string>("api_key", __instance.apiKey));
+                formvars.Add(new System.Collections.Generic.KeyValuePair<string, string>("event", eventsJson));
+                var c = new FormUrlEncodedContent(formvars);
+                var res = hc.PostAsync(AnalyticsRedirectUrl.Value, c).Result;
 
-            // TODO: Send a request to AnalyticsRedirectUrl.Value - This requires that we either use a custom UnityWebRequest, or
-            //       fix the BestHTTP library to allow us to use it here with an ambiguous reference (Assembly-CSharp vs VRCCore-Standalone).
-            UpdateDelegator.Dispatch(new Action(delegate { }));
+                if (res.IsSuccessStatusCode)
+                {
+                    onSuccess?.Invoke();
+                }
+                else
+                {
+                    Logger.Msg(res.StatusCode);
+                    Logger.Msg("[Amplitude] Failed to post events.");
+                    Debug.LogError("AmplitudeAPI: PostEvents: Failed to post events to Amplitude.  Status Code - " +
+                                   res.StatusCode);
+                    onError?.Invoke(AmplitudeWrapper.ErrorCode.ServerError);
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Error($"Amplitude Analytics Redirect request failed with error: {e}");
+            }
+
             return true; 
         }
 
