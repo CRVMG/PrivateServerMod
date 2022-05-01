@@ -1,0 +1,889 @@
+<Project>
+    <ItemGroup Condition="'$(NoModReferences)' != 'true'">
+        <Reference Include="0Harmony">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="AVProVideo.Extensions.Timeline">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/AVProVideo.Extensions.Timeline.dll</HintPath>
+        </Reference>
+        <Reference Include="AVProVideo.Extensions.UnityUI">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/AVProVideo.Extensions.UnityUI.dll</HintPath>
+        </Reference>
+        <Reference Include="AVProVideo.Extensions.VisualEffectGraph">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/AVProVideo.Extensions.VisualEffectGraph.dll</HintPath>
+        </Reference>
+        <Reference Include="AVProVideo.Runtime">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/AVProVideo.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="Accessibility">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Accessibility.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="AssetRipper.VersionUtilities">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../AssetRipper.VersionUtilities.dll</HintPath>
+        </Reference>
+        <Reference Include="AssetsTools.NET">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../AssetsTools.NET.dll</HintPath>
+        </Reference>
+        <Reference Include="BlobHandles.Runtime">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/BlobHandles.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.Compiler">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Boo.Lang.Compiler.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.Extensions">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Boo.Lang.Extensions.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.Parser">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Boo.Lang.Parser.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.PatternMatching">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Boo.Lang.PatternMatching.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.Useful">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Boo.Lang.Useful.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Boo.Lang.dll</HintPath>
+        </Reference>
+        <Reference Include="Cinemachine">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Cinemachine.dll</HintPath>
+        </Reference>
+        <Reference Include="Collections.Pooled">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Collections.Pooled.dll</HintPath>
+        </Reference>
+        <Reference Include="Commons.Xml.Relaxng">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Commons.Xml.Relaxng.dll</HintPath>
+        </Reference>
+        <Reference Include="CustomMarshalers">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/CustomMarshalers.dll</HintPath>
+        </Reference>
+        <Reference Include="DOTween.Modules">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/DOTween.Modules.dll</HintPath>
+        </Reference>
+        <Reference Include="DOTween">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/DOTween.dll</HintPath>
+        </Reference>
+        <Reference Include="DataModel">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/DataModel.dll</HintPath>
+        </Reference>
+        <Reference Include="Facepunch.Steamworks.Win64">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Facepunch.Steamworks.Win64.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.CJK">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/I18N.CJK.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.MidEast">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/I18N.MidEast.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.Other">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/I18N.Other.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.Rare">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/I18N.Rare.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.West">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/I18N.West.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/I18N.dll</HintPath>
+        </Reference>
+        <Reference Include="IBM.Data.DB2">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/IBM.Data.DB2.dll</HintPath>
+        </Reference>
+        <Reference Include="Iced">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Iced.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppMono.Security">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppMono.Security.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppNewtonsoft.Json">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppNewtonsoft.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Buffers">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Buffers.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Collections.Immutable">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Collections.Immutable.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Configuration">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Configuration.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Core">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Diagnostics.StackTrace">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Diagnostics.StackTrace.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Globalization.Extensions">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Globalization.Extensions.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Memory">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Memory.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Runtime.CompilerServices.Unsafe">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Runtime.Serialization">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Runtime.Serialization.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Runtime">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Threading.Tasks.Extensions">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Threading.Tasks.Extensions.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.ValueTuple">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.ValueTuple.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Xml.Linq">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Xml.Linq.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Xml">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.Xml.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2CppSystem.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2Cppmscorlib">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Il2Cppmscorlib.dll</HintPath>
+        </Reference>
+        <Reference Include="MelonLoader">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../MelonLoader.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.Web.Infrastructure">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Microsoft.Web.Infrastructure.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.CSharp">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Mono.CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil.Mdb">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../Mono.Cecil.Mdb.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil.Pdb">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../Mono.Cecil.Pdb.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil.Rocks">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../Mono.Cecil.Rocks.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../Mono.Cecil.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.CompilerServices.SymbolWriter">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Mono.CompilerServices.SymbolWriter.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Data.Sqlite">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Mono.Data.Sqlite.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Data.Tds">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Mono.Data.Tds.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Messaging">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Mono.Messaging.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Posix">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Mono.Posix.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Security">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Mono.Security.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.WebBrowser">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Mono.WebBrowser.dll</HintPath>
+        </Reference>
+        <Reference Include="MonoMod.RuntimeDetour">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../MonoMod.RuntimeDetour.dll</HintPath>
+        </Reference>
+        <Reference Include="MonoMod.Utils">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../MonoMod.Utils.dll</HintPath>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Newtonsoft.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="Novell.Directory.Ldap">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Novell.Directory.Ldap.dll</HintPath>
+        </Reference>
+        <Reference Include="Oculus.Platform">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Oculus.Platform.dll</HintPath>
+        </Reference>
+        <Reference Include="Oculus.VR">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Oculus.VR.dll</HintPath>
+        </Reference>
+        <Reference Include="OscCore.Runtime">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/OscCore.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="Photon-DotNet">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Photon-DotNet.dll</HintPath>
+        </Reference>
+        <Reference Include="SMDiagnostics">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/SMDiagnostics.dll</HintPath>
+        </Reference>
+        <Reference Include="Sigtrap.VrTunnellingPro">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Sigtrap.VrTunnellingPro.dll</HintPath>
+        </Reference>
+        <Reference Include="Tomlet">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/../Tomlet.dll</HintPath>
+        </Reference>
+        <Reference Include="Transmtn">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Transmtn.dll</HintPath>
+        </Reference>
+        <Reference Include="UnhollowerBaseLib">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnhollowerBaseLib.dll</HintPath>
+        </Reference>
+        <Reference Include="UnhollowerRuntimeLib">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnhollowerRuntimeLib.dll</HintPath>
+        </Reference>
+        <Reference Include="UniTask.Addressables">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UniTask.Addressables.dll</HintPath>
+        </Reference>
+        <Reference Include="UniTask.DOTween">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UniTask.DOTween.dll</HintPath>
+        </Reference>
+        <Reference Include="UniTask.Linq">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UniTask.Linq.dll</HintPath>
+        </Reference>
+        <Reference Include="UniTask.TextMeshPro">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UniTask.TextMeshPro.dll</HintPath>
+        </Reference>
+        <Reference Include="UniTask">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UniTask.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.InputSystem">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Unity.InputSystem.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Postprocessing.Runtime">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Unity.Postprocessing.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Unity.TextMeshPro.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Timeline">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/Unity.Timeline.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AIModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.AIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ARModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.ARModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AccessibilityModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.AccessibilityModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AndroidJNIModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.AndroidJNIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AnimationModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.AnimationModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AssetBundleModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.AssetBundleModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.AudioModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ClothModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.ClothModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ClusterInputModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.ClusterInputModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ClusterRendererModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.ClusterRendererModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CrashReportingModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.CrashReportingModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.DSPGraphModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.DSPGraphModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.DirectorModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.DirectorModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.GameCenterModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.GameCenterModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.GridModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.GridModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.HotReloadModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.HotReloadModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.IMGUIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.Il2CppAssetBundleManager">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.Il2CppAssetBundleManager.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.Il2CppImageConversionManager">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.Il2CppImageConversionManager.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ImageConversionModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.ImageConversionModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.InputLegacyModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.InputLegacyModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.InputModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.InputModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.JSONSerializeModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.JSONSerializeModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.LocalizationModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.LocalizationModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ParticleSystemModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.ParticleSystemModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PerformanceReportingModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.PerformanceReportingModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.Physics2DModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.Physics2DModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ProfilerModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.ProfilerModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ScreenCaptureModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.ScreenCaptureModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SharedInternalsModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.SharedInternalsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SpriteMaskModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.SpriteMaskModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SpriteShapeModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.SpriteShapeModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.StreamingModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.StreamingModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SubstanceModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.SubstanceModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SubsystemsModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.SubsystemsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TLSModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.TLSModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TerrainModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.TerrainModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TerrainPhysicsModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TextCoreModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.TextCoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.TextRenderingModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TilemapModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.TilemapModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UI.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UIElementsModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UIElementsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UIModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UNETModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UNETModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UmbraModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UmbraModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityAnalyticsModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityConnectModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UnityConnectModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityTestProtocolModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UnityTestProtocolModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UnityWebRequestModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.VFXModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.VFXModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.VRModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.VRModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.VehiclesModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.VehiclesModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.VideoModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.VideoModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.WindModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.WindModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.XRModule">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.XRModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.SDKBase.Editor.BuildPipeline">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.SDKBase.Editor.BuildPipeline.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.UI.Core">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.UI.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.UI.Elements">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.UI.Elements.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.UI.Shared">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.UI.Shared.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.ClientBindings">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Udon.ClientBindings.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Common">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Udon.Common.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Security">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Udon.Security.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Serialization.AOT">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Udon.Serialization.AOT.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Serialization.OdinSerializer">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Udon.Serialization.OdinSerializer.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.VM">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Udon.VM.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.VRCWrapperModules">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Udon.VRCWrapperModules.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Wrapper">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Udon.Wrapper.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Udon.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Utility">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRC.Utility.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCCore-Editor">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRCCore-Editor.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCCore-Standalone">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRCCore-Standalone.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCLog">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRCLog.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCSDK2">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRCSDK2.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCSDK3">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRCSDK3.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCSDK3A">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRCSDK3A.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCSDKBase">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/VRCSDKBase.dll</HintPath>
+        </Reference>
+        <Reference Include="ValueTupleBridge">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/ValueTupleBridge.dll</HintPath>
+        </Reference>
+        <Reference Include="clipper_library">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/clipper_library.dll</HintPath>
+        </Reference>
+        <Reference Include="cscompmgd">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/cscompmgd.dll</HintPath>
+        </Reference>
+        <Reference Include="websocket-sharp">
+            <SpecifyVersion>false</SpecifyVersion>
+            <Private>false</Private>
+            <HintPath>$(ManagedFolder)/websocket-sharp.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <OutputPath>$(MsBuildThisFileDirectory)\Output\$(Configuration)\</OutputPath>
+        <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+</Project>

@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Net.Http;
 using AmplitudeSDKWrapper;
 using HarmonyLib;
 using MelonLoader;
@@ -18,6 +15,7 @@ using UnityEngine;
 using Il2CppSystem.Collections.Generic;
 using VRC.Core;
 using Object = System.Object;
+using System.Net.Http;
 
 namespace PrivateServer
 {
@@ -284,9 +282,15 @@ namespace PrivateServer
                 IntPtr apiConstructorOrig = *(IntPtr*)(IntPtr)UnhollowerUtils
                     .GetIl2CppMethodInfoPointerFieldForGeneratedMethod(typeof(Api).GetConstructors()
                         .First(x => x.GetParameters().Length > 6)).GetValue(null);
-                MelonUtils.NativeHookAttach((IntPtr)(&apiConstructorOrig),
-                    typeof(PrivateServer).GetMethod(nameof(PatchApiCtor), BindingFlags.Static | BindingFlags.NonPublic)!
-                        .MethodHandle.GetFunctionPointer());
+
+                var deleg = Delegate.CreateDelegate(typeof(ApiDelegate), typeof(PrivateServer).GetMethod(nameof(PatchApiCtor), BindingFlags.Static | BindingFlags.NonPublic)!);
+                GCHandle.Alloc(deleg);
+
+                var delegPointer = Marshal.GetFunctionPointerForDelegate(deleg);
+                GCHandle.Alloc(delegPointer);
+
+                MelonUtils.NativeHookAttach((IntPtr)(&apiConstructorOrig), delegPointer);
+
                 _apiDelegate = Marshal.GetDelegateForFunctionPointer<ApiDelegate>(apiConstructorOrig);
             }
             catch (Exception e)
